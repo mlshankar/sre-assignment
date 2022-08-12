@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-backend-service 
+  labels:
+    app: backend-mysql
+    tier: backend   
+spec:
+  selector:
+    app: backend-mysql
+  ports:
+    - name: mysql
+      port: 3306 # ClusterIP Service Port
+      targetPort: 3306 # Container Port

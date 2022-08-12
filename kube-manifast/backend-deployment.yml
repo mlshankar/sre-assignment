@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-mysql
+  labels:
+    app: backend-mysql
+    tier: backend 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-mysql
+  template:
+    metadata:
+      labels:
+        app: backend-mysql
+        tier: backend 
+    spec: 
+      containers:
+        - name: backend-mysql
+          image: mlshankar/mysql-backend:1.0.1
+          ports:
+            - containerPort: 3306        

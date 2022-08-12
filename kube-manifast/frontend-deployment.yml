@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: frontend-pyapp
+  labels:
+    app: frontend-pyapp
+    tier: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-pyapp
+  template: 
+    metadata:
+      labels: 
+        app: frontend-pyapp
+        tier: frontend
+    spec: 
+      containers: 
+        - name: frontend-pyapp
+          image: mlshankar/python-api:1.0.1
+          ports:
+            - containerPort: 8080
